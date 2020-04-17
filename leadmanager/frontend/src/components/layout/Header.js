@@ -25,7 +25,7 @@ export class Header extends Component {
 						id="navbarTogglerDemo01"
 					>
 						<a className="navbar-brand" href="#">
-							Lead Managerzzzzz
+							Lead Managerzz
 						</a>
 					</div>
 				</div>
