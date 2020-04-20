@@ -12,3 +12,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const CLEAR_LEADS = 'CLEAR_LEADS';
+export const CREATE_DECK = 'CREATE_DECK';
+export const DRAW_CARD = 'DRAW_CARD';
+export const MARK_COMPLETE = 'MARK_COMPLETE';
+export const START_OVER = 'START_OVER';

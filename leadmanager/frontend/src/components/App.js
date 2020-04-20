@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import Header from "./layout/Header";
 import Dashboard from "./leads/Dashboard";
+import Home from "./workouts/Home";
 import store from "../store";
 import { Provider } from "react-redux";
 import { Provider as AlertProvider } from "react-alert";
@@ -10,7 +11,7 @@ import Alert from "./layout/Alerts";
 import Login from "./accounts/Login";
 import Register from "./accounts/Register";
 import {
-	HashRouter as Router,
+	BrowserRouter as Router,
 	Route,
 	Switch,
 	Redirect,
@@ -42,7 +43,7 @@ class App extends Component {
 									<PrivateRoute
 										exact
 										path="/"
-										component={Dashboard}
+										component={Home}
 									/>
 									<Route
 										exact
