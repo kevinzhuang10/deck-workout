@@ -12,7 +12,22 @@ class WorkoutView extends Component {
 		return <h1>Draw your first card!</h1>;
 	};
 
-	render() {
+	renderCard = () => {
+		const { currentCard, currentCardCompleted } = this.props;
+
+		return currentCard ? (
+			<Card
+				{...{
+					card: currentCard,
+					currentCardCompleted,
+				}}
+			/>
+		) : (
+			this.welcomeMessage()
+		);
+	};
+
+	renderButton = () => {
 		const {
 			currentCard,
 			deckId,
@@ -20,36 +35,34 @@ class WorkoutView extends Component {
 			currentCardCompleted,
 			markComplete,
 		} = this.props;
+
+		return currentCardCompleted || !currentCard ? (
+			<Button
+				{...{
+					onClick: drawCard.bind(this, deckId),
+				}}
+			>
+				Draw Card
+			</Button>
+		) : (
+			<Button
+				{...{
+					onClick: markComplete.bind(this, currentCard.id),
+				}}
+			>
+				Done
+			</Button>
+		);
+	};
+
+	render() {
 		return (
 			<Fragment>
 				<Jumbotron style={{ width: "60rem" }}>
 					<Row className="justify-content-md-center">
 						<Col md="auto">
-							{currentCard ? (
-								<Card card={currentCard} />
-							) : (
-								this.welcomeMessage()
-							)}
-							{currentCardCompleted || !currentCard ? (
-								<Button
-									{...{
-										onClick: drawCard.bind(this, deckId),
-									}}
-								>
-									Draw Card
-								</Button>
-							) : (
-								<Button
-									{...{
-										onClick: markComplete.bind(
-											this,
-											currentCard.id
-										),
-									}}
-								>
-									Done
-								</Button>
-							)}
+							{this.renderCard()}
+							{this.renderButton()}
 						</Col>
 					</Row>
 				</Jumbotron>

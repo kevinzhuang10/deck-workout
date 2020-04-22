@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 
-const WorkoutCard = (props) => {
-	const { suit, rank } = props.card;
+const WorkoutCard = ({ card, currentCardCompleted }) => {
+	const { suit, rank } = card;
 	return (
 		<Card style={{ width: "20rem" }} border={"light"}>
-			<Card.Img variant="top" src={getCardImageFileName(suit, rank)} />
+			<Card.Img
+				variant="top"
+				src={getCardImageFileName(suit, rank, currentCardCompleted)}
+			/>
 			<Card.Body>
-				<Card.Title>{`${mapping[suit]}: ${rank} reps`}</Card.Title>
+				<Card.Title>
+					{currentCardCompleted
+						? "What's next?"
+						: `${mapping[suit]}: ${rank} reps`}
+				</Card.Title>
 			</Card.Body>
 		</Card>
 	);
@@ -42,7 +49,11 @@ const suitMapping = {
 	spades: "S",
 };
 
-const getCardImageFileName = (suit, rank) => {
+const getCardImageFileName = (suit, rank, currentCardCompleted) => {
+	if (currentCardCompleted) {
+		return "static/PNG/blue_back.png";
+	}
+
 	return `static/PNG/${rankMapping[rank]}${suitMapping[suit]}.png`;
 };
 
