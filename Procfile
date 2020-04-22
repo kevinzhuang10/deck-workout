@@ -1,1 +1,1 @@
-web: gunicorn --chdir /leadmanager/leadmanager leadmanager.wsgi
+web: gunicorn --chdir /leadmanager leadmanager.wsgi
