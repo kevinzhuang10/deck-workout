@@ -45,7 +45,7 @@ class CardDetail(APIView):
 
 
 def createCardsForDeck(deck):
-    # for suit in Card.Suit:
-    for rank in Card.Rank:
-        Card.objects.create(deck=deck,suit=Card.Suit.CLUBS,rank=rank,active=True)
+    for suit in Card.Suit:
+        for rank in Card.Rank:
+            Card.objects.create(deck=deck,suit=suit,rank=rank,active=True)
     return

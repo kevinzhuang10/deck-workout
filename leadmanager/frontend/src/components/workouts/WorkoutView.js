@@ -3,6 +3,9 @@ import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import { drawCard, markComplete } from "../../actions/workouts";
 import Card from "./Card";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class WorkoutView extends Component {
 	welcomeMessage = () => {
@@ -19,28 +22,37 @@ class WorkoutView extends Component {
 		} = this.props;
 		return (
 			<Fragment>
-				{currentCard ? (
-					<Card card={currentCard} />
-				) : (
-					this.welcomeMessage()
-				)}
-				{currentCardCompleted || !currentCard ? (
-					<Button
-						{...{
-							onClick: drawCard.bind(this, deckId),
-						}}
-					>
-						Draw Card
-					</Button>
-				) : (
-					<Button
-						{...{
-							onClick: markComplete.bind(this, currentCard.id),
-						}}
-					>
-						Done
-					</Button>
-				)}
+				<Jumbotron style={{ width: "60rem" }}>
+					<Row className="justify-content-md-center">
+						<Col md="auto">
+							{currentCard ? (
+								<Card card={currentCard} />
+							) : (
+								this.welcomeMessage()
+							)}
+							{currentCardCompleted || !currentCard ? (
+								<Button
+									{...{
+										onClick: drawCard.bind(this, deckId),
+									}}
+								>
+									Draw Card
+								</Button>
+							) : (
+								<Button
+									{...{
+										onClick: markComplete.bind(
+											this,
+											currentCard.id
+										),
+									}}
+								>
+									Done
+								</Button>
+							)}
+						</Col>
+					</Row>
+				</Jumbotron>
 			</Fragment>
 		);
 	}

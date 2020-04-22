@@ -63,7 +63,7 @@ export class Header extends Component {
 						id="navbarTogglerDemo01"
 					>
 						<a className="navbar-brand" href="#">
-							Lead Manager
+							Deck
 						</a>
 					</div>
 					{isAuthenticated ? authLinks : guestLinks}

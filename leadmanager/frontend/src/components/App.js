@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import PrivateRoute from "./common/PrivateRoute";
 import { loadUser } from "../actions/auth";
+import Container from "react-bootstrap/Container";
 
 // Alert Options
 const alertOptions = {
@@ -38,7 +39,7 @@ class App extends Component {
 						<Fragment>
 							<Header />
 							<Alert />
-							<div className="container">
+							<Container>
 								<Switch>
 									<PrivateRoute
 										exact
@@ -56,7 +57,7 @@ class App extends Component {
 										component={Login}
 									/>
 								</Switch>
-							</div>
+							</Container>
 						</Fragment>
 					</Router>
 				</AlertProvider>
