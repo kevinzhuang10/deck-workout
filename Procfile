@@ -1,1 +1,1 @@
-web: sh -c 'cd ./leadmanager/ && exec gunicorn leadmanager.wsgi --log-file -'
+web: sh -c 'npm run build && cd ./leadmanager/ && exec gunicorn leadmanager.wsgi --log-file -'
