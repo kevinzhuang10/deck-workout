@@ -1,1 +1,1 @@
-web: gunicorn --chdir /leadmanager leadmanager.wsgi
+web: sh -c 'cd ./leadmanager/ && exec gunicorn leadmanager.wsgi --log-file -'
